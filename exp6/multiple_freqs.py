@@ -21,7 +21,13 @@ timeStep = 0.01
 # inicializa o tempo da simulacao.
 timeSim = np.arange(0, 3 + timeStep, timeStep)
 
-omega = np.logspace(0.9, 1.7, 100)
+#omega = np.logspace(0.9, 1.7, 100)
+# 200g
+#omega = np.linspace(25, 33, 8)
+#omega = np.append(omega, np.linspace(30.5, 31.5, 4))
+# 300g
+omega = np.linspace(23, 30, 8)
+omega = np.append(omega, np.linspace(24.5, 25.5, 4))
 
 #
 position = {}
@@ -94,6 +100,6 @@ df = pd.DataFrame({
     'time': timeSim,
     **{f'pos_{omega_i}': position[omega_i] for omega_i in omega},
 })
-df.to_csv('sim_out_300.csv', index=False)
+df.to_csv('sim_out_300g_new.csv', index=False)
 
 print('Simulacao terminada!')
